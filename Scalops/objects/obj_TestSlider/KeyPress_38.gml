@@ -1,0 +1,1 @@
+line.increase(1);
