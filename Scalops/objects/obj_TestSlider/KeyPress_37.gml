@@ -1,1 +1,1 @@
-line.retract();
+line.retract(step);

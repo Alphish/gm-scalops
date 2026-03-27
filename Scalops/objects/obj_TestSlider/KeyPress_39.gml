@@ -1,1 +1,1 @@
-line.advance();
+line.advance(step);
