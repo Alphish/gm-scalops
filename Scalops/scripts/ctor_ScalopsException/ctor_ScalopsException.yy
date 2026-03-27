@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"ctor_ScalopsException",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"ctor_ScalopsException",
+  "parent":{
+    "name":"Scalops",
+    "path":"folders/_Packages/Alphish/Scalops.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
