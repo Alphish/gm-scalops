@@ -29,6 +29,7 @@
     {"id":{"name":"obj_FireWorker","path":"objects/obj_FireWorker/obj_FireWorker.yy",},},
     {"id":{"name":"obj_TestSlider","path":"objects/obj_TestSlider/obj_TestSlider.yy",},},
     {"id":{"name":"rm_Demo","path":"rooms/rm_Demo/rm_Demo.yy",},},
+    {"id":{"name":"ctor_ScalopsCooldown","path":"scripts/ctor_ScalopsCooldown/ctor_ScalopsCooldown.yy",},},
     {"id":{"name":"ctor_ScalopsException","path":"scripts/ctor_ScalopsException/ctor_ScalopsException.yy",},},
     {"id":{"name":"ctor_ScalopsResource","path":"scripts/ctor_ScalopsResource/ctor_ScalopsResource.yy",},},
     {"id":{"name":"ctor_ScalopsSlidingLine","path":"scripts/ctor_ScalopsSlidingLine/ctor_ScalopsSlidingLine.yy",},},

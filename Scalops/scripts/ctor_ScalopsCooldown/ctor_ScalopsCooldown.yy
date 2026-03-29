@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"ctor_ScalopsCooldown",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"ctor_ScalopsCooldown",
+  "parent":{
+    "name":"Scalops",
+    "path":"folders/_Packages/Alphish/Scalops.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
