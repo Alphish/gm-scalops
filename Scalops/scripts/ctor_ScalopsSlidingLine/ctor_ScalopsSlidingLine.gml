@@ -5,6 +5,10 @@ function ScalopsSlidingLine(_from, _to, _init = _from) : ScalopsValue(_init) con
     min_value = min(value_from, value_to);
     max_value = max(value_from, value_to);
     
+    // ------
+    // Checks
+    // ------
+    
     static is_start = function() {
         return get_value() == value_from;
     }
@@ -12,6 +16,23 @@ function ScalopsSlidingLine(_from, _to, _init = _from) : ScalopsValue(_init) con
     static is_end = function() {
         return get_value() == value_to;
     }
+    
+    // --------
+    // Measures
+    // --------
+    
+    static get_progress = function() {
+        var _span = value_to - value_from;
+        if (_span == 0)
+            return undefined;
+        
+        var _progress_amount = get_value() - value_from;
+        return _progress_amount / _span;
+    }
+    
+    // ----------
+    // Management
+    // ----------
     
     static increase = function(_amount) {
         if (_amount < 0)
@@ -41,14 +62,5 @@ function ScalopsSlidingLine(_from, _to, _init = _from) : ScalopsValue(_init) con
     
     static retract = function(_amount = 1) {
         return value_from < value_to ? decrease(_amount) : increase(_amount);
-    }
-    
-    static get_progress = function() {
-        var _span = value_to - value_from;
-        if (_span == 0)
-            return undefined;
-        
-        var _progress_amount = get_value() - value_from;
-        return _progress_amount / _span;
     }
 }

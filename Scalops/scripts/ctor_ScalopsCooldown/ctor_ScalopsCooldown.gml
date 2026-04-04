@@ -1,6 +1,10 @@
 function ScalopsCooldown(_period) : ScalopsValue(/* init */ 0) constructor {
     period = _period;
     
+    // ------
+    // Checks
+    // ------
+    
     static is_ready = function() {
         return get_value() <= 0;
     }
@@ -8,6 +12,18 @@ function ScalopsCooldown(_period) : ScalopsValue(/* init */ 0) constructor {
     static is_pending = function() {
         return get_value() > 0;
     }
+    
+    // --------
+    // Measures
+    // --------
+    
+    static get_fraction = function() {
+        return get_value() / period;
+    }
+    
+    // ----------
+    // Management
+    // ----------
     
     static start = function(_period = undefined) {
         set_value(_period ?? period);
@@ -43,6 +59,10 @@ function ScalopsCooldown(_period) : ScalopsValue(/* init */ 0) constructor {
         return _target >= period;
     }
     
+    // ---
+    // Use
+    // ---
+    
     static try_use = function(_period = undefined) {
         var _current = get_value();
         if (_current > 0)
@@ -50,13 +70,5 @@ function ScalopsCooldown(_period) : ScalopsValue(/* init */ 0) constructor {
         
         set_value(_current + (_period ?? period));
         return true;
-    }
-    
-    static get_fraction = function() {
-        return get_value() / period;
-    }
-    
-    static get_percentage = function() {
-        return 100 * get_value() / period;
     }
 }
