@@ -1,8 +1,8 @@
 image_index = hp.is_empty() ? 1 : 0;
 draw_self();
 
-draw_healthbar(x, y - 20, x + sprite_width, y - 4, hp.get_percentage(), c_green, c_lime, c_lime, 0, true, false);
-draw_healthbar(x, y - 20, x + sprite_width, y - 4, revive_cooldown.get_percentage(), c_black, c_blue, c_blue, 0, false, false);
+draw_healthbar(x, y - 20, x + sprite_width, y - 4, 100 * hp.get_fraction(), c_green, c_lime, c_lime, 0, true, false);
+draw_healthbar(x, y - 20, x + sprite_width, y - 4, 100 * revive_cooldown.get_fraction(), c_black, c_blue, c_blue, 0, false, false);
 
 draw_set_color(c_black);
 draw_set_alpha(1);
