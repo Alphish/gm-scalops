@@ -1,6 +1,10 @@
 function ScalopsResource(_capacity = infinity, _init = 0) : ScalopsValue(_init) constructor {
     capacity = _capacity;
     
+    // ------
+    // Checks
+    // ------
+    
     static is_full = function() {
         return get_value() >= capacity;
     }
@@ -9,7 +13,19 @@ function ScalopsResource(_capacity = infinity, _init = 0) : ScalopsValue(_init) 
         return get_value() <= 0;
     }
     
-    static collect = function(_amount) {
+    // --------
+    // Measures
+    // --------
+    
+    static get_fraction = function() {
+        return get_value() / capacity;
+    }
+    
+    // ----------
+    // Management
+    // ----------
+    
+    static increase = function(_amount) {
         if (_amount < 0)
             throw ScalopsException.negative_amount(_amount);
         
@@ -24,7 +40,15 @@ function ScalopsResource(_capacity = infinity, _init = 0) : ScalopsValue(_init) 
         return _outstanding;
     }
     
-    static deplete = function(_amount) {
+    static collect = function(_amount) {
+        return increase(_amount);
+    }
+    
+    static gain = function(_amount) {
+        return increase(_amount);
+    }
+    
+    static decrease = function(_amount) {
         if (_amount < 0)
             throw ScalopsException.negative_amount(_amount);
         
@@ -38,6 +62,18 @@ function ScalopsResource(_capacity = infinity, _init = 0) : ScalopsValue(_init) 
         var _outstanding = _amount - (_previous - _target);
         return _outstanding;
     }
+    
+    static lose = function(_amount) {
+        return decrease(_amount);
+    }
+    
+    static deplete = function(_amount) {
+        return decrease(_amount);
+    }
+    
+    // ---
+    // Use
+    // ---
     
     static can_spend = function(_amount) {
         if (_amount < 0)
@@ -56,13 +92,5 @@ function ScalopsResource(_capacity = infinity, _init = 0) : ScalopsValue(_init) 
         
         set_value(_current - _amount);
         return true;
-    }
-    
-    static get_fraction = function() {
-        return get_value() / capacity;
-    }
-    
-    static get_percentage = function() {
-        return 100 * get_value() / capacity;
     }
 }
